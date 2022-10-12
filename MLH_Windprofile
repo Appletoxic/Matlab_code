@@ -1,0 +1,55 @@
+xdata=xlsread('D:\After_2022\2022_O3-T_paper\02_Lidar_Final\03_wm_H_dir.csv');
+xdata2=xlsread('D:\After_2022\2022_O3-T_paper\02_Lidar_Final\03_vhm_H_dir.csv');
+xdata3 = (xdata2 / 22);
+MLH_data = [424.1379	397.2414	444.8276	428.6207	378.2143	395.1724	526.5517	966.8966	891.0345	930.3448	1045.5172	1256.2069	1299.3103	1542.7586	1534.8276	1506.2069	1532.069	1540.3448	1448.6207	893.1034	557.2414	475.1724	442.4138	434.1379];
+
+lat=0:1:23;
+lon=100:50:2600;
+windH = ones(51,24);
+
+
+%plot
+imagesc(lat,lon,xdata)
+%smoonth the color plot
+pcolor(lat,lon,xdata);
+shading interp;
+set(gca,'XTick',0:2:23)
+set(gca,'CLim',[-0.5, 0.5])
+colormap jet
+colorbar
+hold on
+plot(lat, MLH_data, 'black-x', 'LineWidth', 2,'MarkerSize',10)
+xlabel('Hour', 'FontWeight','bold')
+ylabel('Height (m)', 'FontWeight','bold')
+quiver(lat,lon,xdata3,windH,'black','LineWidth',1,'ShowArrowHead','off', 'AutoScale','off', 'MaxHeadSize',10);
+sc_bar = colorbar;
+sc_bar.Label.String = ('Vertical Wind Component (m s^{-1})');
+
+
+
+xdata=xlsread('D:\After_2022\2022_O3-T_paper\02_Lidar_Final\03_wm_L_dir.csv');
+xdata2=xlsread('D:\After_2022\2022_O3-T_paper\02_Lidar_Final\03_vhm_L_dir.csv');
+xdata3 = (xdata2 / 22);
+MLH_data = [424.1379	397.2414	444.8276	428.6207	378.2143	395.1724	526.5517	966.8966	891.0345	930.3448	1045.5172	1256.2069	1299.3103	1542.7586	1534.8276	1506.2069	1532.069	1540.3448	1448.6207	893.1034	557.2414	475.1724	442.4138	434.1379];
+
+lat=0:1:23;
+lon=100:50:2600;
+windH = ones(51,24);
+
+%plot
+imagesc(lat,lon,xdata)
+%smoonth the color plot
+pcolor(lat,lon,xdata);
+shading interp;
+set(gca,'XTick',0:2:23)
+set(gca,'CLim',[-0.5, 0.5])
+colormap jet
+colorbar
+hold on
+plot(lat, MLH_data, 'black-x', 'LineWidth', 2,'MarkerSize',10)
+xlabel('Hour', 'FontWeight','bold')
+ylabel('Height (m)', 'FontWeight','bold')
+quiver(lat,lon,xdata3,windH,'black','LineWidth',1,'ShowArrowHead','off', 'AutoScale','off', 'MaxHeadSize',10);
+sc_bar = colorbar;
+sc_bar.Label.String = ('Vertical Wind Component (m s^{-1})');
+
